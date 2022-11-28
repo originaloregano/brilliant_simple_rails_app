@@ -1,9 +1,10 @@
-class Product
-  # has_many :customers
-  # validates_uniqueness_of :type
+class Product < ActiveRecord::Base
+  include ActiveModel::Validations
+  has_many :customers
+  validates_uniqueness_of :type
 
   attr_reader :product
-  #ask the product about itself
+
   def initialize(input)
     @input = input.chomp.split
     @command = input[0]

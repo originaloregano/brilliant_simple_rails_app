@@ -1,14 +1,15 @@
-class Customer
+class Customer < ActiveRecord::Base
+  include ActiveModel::Validations
   attr_reader :customer
   #only ask questions about customer when placing an order
-  # validates_uniqueness_of :name
+  validates_uniqueness_of :name
 
   def initialize(input)
     @name = input[1]
   end
 
   def self.is_a_customer?
-    if Customer.where(name: @name).exists?
+    if Customer.find_by_name(@name).exists?
       puts "this customer already exists"
     end
   end

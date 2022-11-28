@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-require './interface'
+require_relative 'interface'
 
 File.open(ARGV[0]).each do |line|
   interface = Interface.new(line)

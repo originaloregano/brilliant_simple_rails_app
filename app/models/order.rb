@@ -1,6 +1,6 @@
 require_relative 'customer'
 
-class Order
+class Order < ActiveRecord::Bas
 #order is only time customer is brought up
 #order kate socks 10
 attr_reader :order
@@ -11,6 +11,7 @@ attr_reader :order
     @product = @input[2]
     @quantity = @input[3]
     @total = total
+    @orders = []
   end
 
   def self.process_order(input)
